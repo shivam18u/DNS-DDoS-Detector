@@ -15,10 +15,10 @@ def main():
 	t=10
 	victimIP="10.0.2.9"
 	while(1):		
-		command1= "timeout "+ str(t)+" tcpdump -W 1 -w shivam.pcap -i eth0 port 53 && host 08:00:27:d7:72:99"
+		command1= "timeout "+ str(t)+" tcpdump -W 1 -w capture.pcap -i eth0 port 53 && host 08:00:27:d7:72:99"
 		os.system(command1)
-		os.system("tshark -r shivam.pcap -T fields -e ip.src -e ip.dst > newip.txt")
-		file1 = open('newip.txt', 'r') 
+		os.system("tshark -r capture.pcap -T fields -e ip.src -e ip.dst > ip.txt")
+		file1 = open('ip.txt', 'r') 
 		Lines = file1.readlines() 
 		source=[]
 		destination=[]
